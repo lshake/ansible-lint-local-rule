@@ -6,7 +6,7 @@ class DeprecatedVariableRule(AnsibleLintRule):
     """Deprecated variable declarations."""
     id = 'LSHAKE001'
     description = 'Check for lines that have old style variable declarations'
-    tags = { 'deprecations' }
+    tags = [ 'deprecations' ]
     severity = "HIGH"
     version_added = "6.14.3"
 
