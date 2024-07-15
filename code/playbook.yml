@@ -1,0 +1,27 @@
+---
+- name: Get info from RedFish
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Get CPU inventory
+      community.general.redfish_info:
+        category: Systems
+        command: GetNicInventory
+        baseuri: "{{ baseuri }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+      register: result
+
+    - name: Debug result
+      ansible.builtin.debug:
+        msg: "{{result}}"
+
+    - name: Echo result
+      ansible.builtin.shell: "echo {{ result }}"
+
+    - name: Set file perms ##
+      ansible.builtin.file:
+        path: /tmp/lee.out
+        state: present
+        mode: 644
