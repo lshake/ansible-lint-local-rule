@@ -1,5 +1,5 @@
 ---
-- name: Get info from RedFish
+- name: Poor playbook to trigger lint rules
   hosts: all
   gather_facts: false
 
